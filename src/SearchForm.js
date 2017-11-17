@@ -5,7 +5,7 @@ import axios from 'axios'
 class SearchForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {name: '', mail: '',participants: ''};
+    this.state = {name: ''};
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,8 +17,6 @@ class SearchForm extends Component {
       url:'http://127.0.0.1:5000/',
       data: {
         name: this.state.name,
-        mail: this.state.mail,
-        participants: this.state.participants
       }
     });
     console.log(response);
@@ -30,7 +28,7 @@ class SearchForm extends Component {
 
   handleSubmit(event) {
     this.addDeta();
-    this.setState({name: '', mail:'', participants: ''});
+    this.setState({name: ''});
     event.preventDefault();
   }
 
