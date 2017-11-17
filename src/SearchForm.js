@@ -5,13 +5,7 @@ import SearchResult from './SearchResult';
 // import './SearchForm.css';
 
 class SearchForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {name: '', resultText: '太郎'};
-
-    this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  state = {name: '', resultText: ''};
 
   async addDeta() {
     const response = await axios({
@@ -24,13 +18,13 @@ class SearchForm extends Component {
     console.log(response);
   }
 
-  handleChangeName(event)  {
+  handleChangeName = event =>  {
     this.setState({name: event.target.value});
-    // this.setState({resultText: this.state.name});
   }
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     // this.addDeta();
+    this.setState({resultText: this.state.name});
     this.setState({name: ''});
     event.preventDefault();
   }
