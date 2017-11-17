@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+import SearchResult from './SearchResult';
+
 // import './SearchForm.css';
 
 class SearchForm extends Component {
@@ -22,12 +24,12 @@ class SearchForm extends Component {
     console.log(response);
   }
 
-  handleChangeName(event) {
+  handleChangeName(event)  {
     this.setState({name: event.target.value});
   }
 
   handleSubmit(event) {
-    this.addDeta();
+    // this.addDeta();
     this.setState({name: ''});
     event.preventDefault();
   }
@@ -42,6 +44,7 @@ class SearchForm extends Component {
         <input type="submit" value="検索" />
         <br/>
         <br/>
+        <SearchResult resultText="ンゴ"/>
       </form>
     );
   }

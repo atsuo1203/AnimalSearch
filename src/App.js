@@ -9,7 +9,6 @@ class App extends Component {
     return (
       <dev>
         <SearchForm/>
-        <SearchResult/>
       </dev>
     );
   }
