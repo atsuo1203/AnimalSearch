@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+// import './SearchForm.css';
 
 class SearchForm extends Component {
   constructor(props) {
@@ -7,8 +8,6 @@ class SearchForm extends Component {
     this.state = {name: '', mail: '',participants: ''};
 
     this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleChangeMail = this.handleChangeMail.bind(this);
-    this.handleChangeParticipants = this.handleChangeParticipants.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -29,14 +28,6 @@ class SearchForm extends Component {
     this.setState({name: event.target.value});
   }
 
-  handleChangeMail(event) {
-    this.setState({mail: event.target.value});
-  }
-
-  handleChangeParticipants(event) {
-    this.setState({participants: event.target.value});
-  }
-
   handleSubmit(event) {
     this.addDeta();
     this.setState({name: '', mail:'', participants: ''});
@@ -47,21 +38,12 @@ class SearchForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          氏名:
+          名前:
           <input type="text" value={this.state.name} onChange={this.handleChangeName} />
         </label>
+        <input type="submit" value="検索" />
         <br/>
-        <label>
-          メアド:
-          <input type="text" value={this.state.mail} onChange={this.handleChangeMail} />
-        </label>
         <br/>
-        <label>
-          人数:
-          <input type="text" value={this.state.participants} onChange={this.handleChangeParticipants} />
-        </label>
-        <br/>
-        <input type="submit" value="Submit" />
       </form>
     );
   }
