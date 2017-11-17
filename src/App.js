@@ -7,10 +7,9 @@ class App extends Component {
 
   render() {
     return (
-      <dev>
+      <div>
         <SearchForm/>
-        <SearchResult/>
-      </dev>
+      </div>
     );
   }
 }

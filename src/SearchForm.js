@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+import SearchResult from './SearchResult';
+
 // import './SearchForm.css';
 
 class SearchForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {name: '', mail: '',participants: ''};
-
-    this.handleChangeName = this.handleChangeName.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  state = {name: '', resultText: ''};
 
   async addDeta() {
     const response = await axios({
@@ -17,20 +13,19 @@ class SearchForm extends Component {
       url:'http://127.0.0.1:5000/',
       data: {
         name: this.state.name,
-        mail: this.state.mail,
-        participants: this.state.participants
       }
     });
     console.log(response);
   }
 
-  handleChangeName(event) {
+  handleChangeName = event =>  {
     this.setState({name: event.target.value});
   }
 
-  handleSubmit(event) {
-    this.addDeta();
-    this.setState({name: '', mail:'', participants: ''});
+  handleSubmit = event => {
+    // this.addDeta();
+    this.setState({resultText: this.state.name});
+    this.setState({name: ''});
     event.preventDefault();
   }
 
@@ -44,6 +39,7 @@ class SearchForm extends Component {
         <input type="submit" value="検索" />
         <br/>
         <br/>
+        <SearchResult resultText={this.state.resultText}/>
       </form>
     );
   }
