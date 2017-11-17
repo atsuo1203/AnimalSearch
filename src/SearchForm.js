@@ -7,7 +7,7 @@ import SearchResult from './SearchResult';
 class SearchForm extends Component {
   constructor(props) {
     super(props);
-    this.state = {name: ''};
+    this.state = {name: '', resultText: '太郎'};
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,6 +26,7 @@ class SearchForm extends Component {
 
   handleChangeName(event)  {
     this.setState({name: event.target.value});
+    // this.setState({resultText: this.state.name});
   }
 
   handleSubmit(event) {
@@ -44,7 +45,7 @@ class SearchForm extends Component {
         <input type="submit" value="検索" />
         <br/>
         <br/>
-        <SearchResult resultText="ンゴ"/>
+        <SearchResult resultText={this.state.resultText}/>
       </form>
     );
   }
