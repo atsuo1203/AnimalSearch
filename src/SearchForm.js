@@ -16,6 +16,7 @@ class SearchForm extends Component {
       }
     });
     console.log(response);
+    this.setState({resultText: response.data['name']});
   }
 
   handleChangeName = event =>  {
@@ -23,8 +24,7 @@ class SearchForm extends Component {
   }
 
   handleSubmit = event => {
-    // this.addDeta();
-    this.setState({resultText: this.state.name});
+    this.addDeta();
     this.setState({name: ''});
     event.preventDefault();
   }
@@ -39,7 +39,7 @@ class SearchForm extends Component {
         <input type="submit" value="検索" />
         <br/>
         <br/>
-        <SearchResult resultText={this.state.resultText}/>
+        <SearchResult name={this.state.name} resultText={this.state.resultText}/>
       </form>
     );
   }
