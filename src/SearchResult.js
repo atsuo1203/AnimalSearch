@@ -11,7 +11,7 @@ class SearchResult extends Component {
         <br/>
         resultText
         <br/>
-        {this.props.resultText}
+        <pre>{this.props.resultText}</pre>
       </div>
     );
   }

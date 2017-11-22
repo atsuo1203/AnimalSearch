@@ -16,9 +16,7 @@ class SearchForm extends Component {
       }
     });
     console.log(response);
-    let responseData = response.data['name'];
-    let resultText = responseData.replace(/\r?\n/g, '<br/>');
-    this.setState({resultText: resultText});
+    this.setState({resultText: response.data['name']});
   }
 
   handleChangeName = event =>  {
