@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import axios from 'axios'
+import _ from 'lodash'
 import SearchResult from './SearchResult';
 
 // import './SearchForm.css';
 
 class SearchForm extends Component {
-  state = {name: '', resultText: ''};
+  state = {name: '', resultText: []};
 
   async addDeta() {
     const response = await axios({
@@ -16,7 +17,7 @@ class SearchForm extends Component {
       }
     });
     console.log(response);
-    this.setState({resultText: response.data['name']});
+    this.setState({resultText: _.trim(response.data['name']).split("\n")});
   }
 
   handleChangeName = event =>  {

@@ -1,20 +1,12 @@
 import React, {Component} from 'react';
 
-class SearchResult extends Component {
-
-  render() {
-    return (
-      <div>
-        name
-        <br/>
-        {this.props.name}
-        <br/>
-        resultText
-        <br/>
-        {this.props.resultText}
-      </div>
-    );
-  }
-}
+const SearchResult = (props) => (
+  <div>
+    <p>name</p>
+    <p>{props.name}</p>
+    <p>resultText</p>
+    <ul>{props.resultText.map((line, i) => (<li key={i}>{line}</li>))}</ul>
+  </div>
+);
 
 export default SearchResult;
