@@ -6,7 +6,7 @@ import SearchResult from './SearchResult';
 // import './SearchForm.css';
 
 class SearchForm extends Component {
-  state = {name: '', resultText: []};
+  state = {name: '',resultName:'', resultText: []};
 
   async addDeta() {
     const response = await axios({
@@ -22,6 +22,7 @@ class SearchForm extends Component {
 
   handleChangeName = event =>  {
     this.setState({name: event.target.value});
+    this.setState({resultName: event.target.value});
   }
 
   handleSubmit = event => {
@@ -40,7 +41,7 @@ class SearchForm extends Component {
         <input type="submit" value="検索" />
         <br/>
         <br/>
-        <SearchResult name={this.state.name} resultText={this.state.resultText}/>
+        <SearchResult resultName={this.state.resultName} resultText={this.state.resultText}/>
       </form>
     );
   }
