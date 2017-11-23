@@ -26,8 +26,10 @@ class SearchForm extends Component {
   }
 
   handleSubmit = event => {
-    this.addDeta();
-    this.setState({name: ''});
+    if (this.state.name !== '') {
+      this.addDeta();
+      this.setState({name: ''});
+    }
     event.preventDefault();
   }
 
