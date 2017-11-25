@@ -11,7 +11,7 @@ class SearchForm extends Component {
   async addDeta() {
     const response = await axios({
       method:'post',
-      url:'http://127.0.0.1:5000/',
+      url:'https://animal-searcher.herokuapp.com/',
       data: {
         name: this.state.name,
       }
