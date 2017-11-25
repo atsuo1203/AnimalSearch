@@ -2,6 +2,7 @@
   "name": "AnimalSearch",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://atsuo1203.github.io/AnimalSearch-front",
   "dependencies": {
     "autoprefixer": "7.1.6",
     "axios": "0.17.0",
