@@ -6,8 +6,12 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <SearchForm/>
+      <div className="container">
+        <div className="columns">
+          <div className="column col-6">
+            <SearchForm />
+          </div>
+        </div>
       </div>
     );
   }
